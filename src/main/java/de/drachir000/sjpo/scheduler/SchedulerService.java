@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
+import java.util.Properties;
 
 /**
  * Manages scheduled tasks for instances using Quartz Scheduler
@@ -24,9 +25,18 @@ public class SchedulerService {
 	
 	public SchedulerService(ProcessOrchestrator orchestrator, BackupManager backupManager)
 			throws SchedulerException {
+		
 		this.orchestrator = orchestrator;
 		this.backupManager = backupManager;
-		this.scheduler = StdSchedulerFactory.getDefaultScheduler();
+		
+		Properties props = new Properties();
+		props.put("org.quartz.threadPool.threadCount", "5");
+		props.put("org.quartz.threadPool.class", "org.quartz.simpl.SimpleThreadPool");
+		props.put("org.quartz.jobStore.class", "org.quartz.simpl.RAMJobStore");
+		
+		StdSchedulerFactory factory = new StdSchedulerFactory(props);
+		this.scheduler = factory.getScheduler();
+		
 	}
 	
 	/**
