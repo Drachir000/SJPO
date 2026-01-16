@@ -44,3 +44,10 @@ CLAUDE.md
 
 ### Test Working Directory ###
 test-dir/
+
+# Runtime
+instances/
+!instances/.gitkeep
+backups/
+apps/
+sjpo.log
