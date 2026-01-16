@@ -9,7 +9,7 @@
 	<name>SJPO</name>
 	<description>A simple Java processor orchestrator for managing and executing Java processes.</description>
 	<url>https://github.com/Drachir000/SJPO</url>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	
 	<packaging>jar</packaging>
 	
